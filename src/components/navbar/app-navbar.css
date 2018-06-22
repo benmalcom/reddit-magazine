@@ -1,0 +1,25 @@
+nav.nav {
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 1px 0 hsla(0,0%,0%,0.2);
+    background-color: #fff;
+}
+
+nav.nav > .nav-header {
+    display: inline;
+}
+
+nav.nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    font-weight: bold;
+    color: #555;
+    padding: 10px;
+}
+.red{
+    color: #D74537;
+}
