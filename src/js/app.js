@@ -1,5 +1,7 @@
 // Remove expired items in cache
 new CacheService().removeExpired();
+// Reset residual form elements
+$('form')[0].reset();
 
 const API_BASE_URL = 'https://www.reddit.com';
 let LIMIT = 10;
@@ -23,10 +25,12 @@ $(document).ready(() => {
 	$('.search-bar').submit(function (e) {
 		e.preventDefault();
 		const obj = formDataToObject($(this).serializeArray());
+		console.log('obj ', obj);
 		const isValidSearch = Object.values(obj).some((value) => value);
 		if (isValidSearch) {
 			$('.content').empty();
-			Object.assign(CURRENT_QUERY, obj);
+			CURRENT_QUERY = Object.assign({}, obj);
+			console.log('CURRENT_QUERY search ', CURRENT_QUERY);
 			getPosts(CURRENT_QUERY);
 		}
 	});
@@ -59,7 +63,8 @@ async function getPosts(query = {}) {
 	// Change request url if query contains subreddits
 	if (query.subreddits) {
 		url += `/${query.subreddits}/search.json?`;
-		Object.assign(CURRENT_QUERY, {subreddits: query.subreddits});
+		CURRENT_QUERY = Object.assign({}, CURRENT_QUERY, {subreddits: query.subreddits});
+		delete query.subreddits;
 		query.restrict_sr = 'on';
 		// Change request url if query doesn't contains subreddits but search param
 	} else if (query.q && !query.subreddits) {
