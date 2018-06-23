@@ -136,6 +136,12 @@ nav.nav > .nav-header > .nav-title {
     .tile{
         min-height: 70vh;
     }
+    .search-bar{
+        width: 90%;
+        margin: 3px auto;
+        grid-template-columns: repeat(1, 100%);
+        grid-row-gap: 3px;
+    }
 }
 /*
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
@@ -147,6 +153,13 @@ nav.nav > .nav-header > .nav-title {
     }
     .tile{
         height: 65vh;
+    }
+
+    .search-bar{
+        width: 90%;
+        margin: 3px auto;
+        grid-template-columns: repeat(2, 50%);
+        grid-row-gap: 3px;
     }
 }
 
@@ -160,6 +173,11 @@ nav.nav > .nav-header > .nav-title {
     }
     .tile{
         height: 65vh;
+    }
+    .search-bar{
+        width: 90%;
+        margin: 3px auto;
+        grid-template-columns: repeat(2, 40%)  20%;
     }
 }
 
